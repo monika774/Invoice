@@ -1,0 +1,18 @@
+<!-- invoice_app/templates/invoice_app/invoices_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoices List</title>
+</head>
+<body>
+    <h1>Invoices List</h1>
+    <ul>
+        {% for invoice in invoices %}
+            <li>
+                <a href="{% url 'invoice-detail' invoice.id %}">Invoice {{ invoice.id }}</a> - {{ invoice.date }} - {{ invoice.customer_name }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create-edit-invoice' %}">Create Invoice</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!-- invoice_app/templates/invoice_app/invoice_form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create/Edit Invoice</title>
+</head>
+<body>
+    <h1>Create/Edit Invoice</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+        <input type="submit" value="Next">
+    </form>
+    <a href="{% url 'invoices-list' %}">Back to Invoices List</a>
+</body>
+</html>

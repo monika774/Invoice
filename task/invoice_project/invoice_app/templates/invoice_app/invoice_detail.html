@@ -1,0 +1,21 @@
+<!-- invoice_app/templates/invoice_app/invoice_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice Detail</title>
+</head>
+<body>
+    <h1>Invoice Detail</h1>
+    <p>Invoice ID: {{ invoice.id }}</p>
+    <p>Date: {{ invoice.date }}</p>
+    <p>Customer Name: {{ invoice.customer_name }}</p>
+
+    <h2>Invoice Details</h2>
+    <ul>
+        {% for detail in invoice.details.all %}
+            <li>{{ detail.description }} - Quantity: {{ detail.quantity }} - Unit Price: ${{ detail.unit_price }} - Total Price: ${{ detail.price }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'invoices-list' %}">Back to Invoices List</a>
+</body>
+</html>
